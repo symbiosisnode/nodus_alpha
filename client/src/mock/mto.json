@@ -1,0 +1,33 @@
+{
+  "userId": "mto-001",
+  "role": "MTO",
+  "name": "Alex Mercer",
+  "equity": {
+    "currentValue": 125000,
+    "growthPercentage": 22.5,
+    "tier": "Platinum",
+    "nextTier": "Diamond",
+    "progressToNextTier": 60
+  },
+  "territory": {
+    "name": "Downtown Metro",
+    "gpCount": 15,
+    "saCount": 75,
+    "performanceMetric": 88,
+    "mapImage": "/mock-images/map-downtown.png"
+  },
+  "leaderboard": [
+    { "gpId": "gp-012", "name": "Sarah Chen", "rank": 1, "performance": 95 },
+    { "gpId": "gp-005", "name": "Mike Riley", "rank": 2, "performance": 92 },
+    { "gpId": "gp-021", "name": "Jordan Lee", "rank": 3, "performance": 89 }
+  ],
+  "aiInsights": [
+    "Consider expanding GP recruitment efforts in the North Sector.",
+    "SA retention is strong, focus on conversion rates.",
+    "Upcoming market trend: Increased demand for eco-friendly properties."
+  ],
+  "notifications": [
+    { "id": "n1", "message": "GP Sarah Chen reached Diamond Tier!", "type": "milestone" },
+    { "id": "n2", "message": "New Insight: Market Shift Detected.", "type": "ai" }
+  ]
+} 

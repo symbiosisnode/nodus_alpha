@@ -1,0 +1,24 @@
+# Netlify configuration for NODUS project
+
+# Build settings
+[build]
+  # Command to build the client application
+  # We navigate into client, run its build script (tsc && vite build), 
+  # then copy the result to a root-level 'dist' if needed, or just point publish to client/dist
+  command = "cd client && npm run build"
+  # Directory (relative to root) containing the built site assets
+  publish = "client/dist"
+
+# Redirect rule for Single Page Applications (SPA)
+# This ensures direct navigation or refresh on routes like /mto works
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Optional: Header rules (Example: Cache control)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Don't cache HTML, always check for updates
+    Cache-Control = "public, max-age=0, must-revalidate" 

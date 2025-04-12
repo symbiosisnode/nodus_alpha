@@ -1,0 +1,35 @@
+{
+  "userId": "gp-012",
+  "role": "GP",
+  "name": "Sarah Chen",
+  "equity": {
+    "currentValue": 45000,
+    "growthPercentage": 18.0,
+    "tier": "Gold",
+    "nextTier": "Platinum",
+    "progressToNextTier": 75
+  },
+  "saNetwork": {
+    "directCount": 12,
+    "totalCount": 48,
+    "recentGrowth": 5
+  },
+  "milestones": [
+    { "id": "m1", "name": "Recruit 10 SAs", "completed": true },
+    { "id": "m2", "name": "Achieve Gold Tier", "completed": true },
+    { "id": "m3", "name": "Unlock Platinum Tier", "completed": false, "progress": 75 }
+  ],
+  "referral": {
+    "code": "SARAHC12",
+    "link": "https://nodus.app/join?ref=SARAHC12",
+    "conversions": 8
+  },
+  "tools": [
+    { "name": "Network Visualizer", "link": "/gp/network" },
+    { "name": "Performance Reports", "link": "/gp/reports" }
+  ],
+  "notifications": [
+    { "id": "n3", "message": "You unlocked the Gold Tier Badge!", "type": "milestone", "triggeredConfetti": true },
+    { "id": "n4", "message": "New SA joined via your link!", "type": "referral" }
+  ]
+} 

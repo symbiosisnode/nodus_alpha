@@ -1,0 +1,30 @@
+{
+  "userId": "sa-101",
+  "role": "SA",
+  "name": "Ben Carter",
+  "equity": {
+    "currentValue": 5000,
+    "growthPercentage": 12.0,
+    "tier": "Bronze",
+    "nextTier": "Silver",
+    "progressToNextTier": 40
+  },
+  "bundles": [
+    { "id": "b1", "name": "Starter Condo Pack", "value": 2000, "status": "Active" },
+    { "id": "b2", "name": "Suburban Home Kit", "value": 3000, "status": "Pending" }
+  ],
+  "commission": {
+    "earnedThisMonth": 450,
+    "potentialNextMonth": 600
+  },
+  "quickActions": [
+    { "name": "View Available Properties", "icon": "BuildingOfficeIcon", "link": "/sa/properties" },
+    { "name": "Share Referral Link", "icon": "ShareIcon", "action": "shareReferral" },
+    { "name": "Contact GP", "icon": "UserGroupIcon", "action": "contactGP" }
+  ],
+  "notifications": [
+    { "id": "n5", "message": "First Commission Earned! +$50", "type": "commission" },
+    { "id": "n6", "message": "Bronze Tier badge unlocked! Keep going!", "type": "milestone" }
+  ],
+  "aiNudge": "You're 1 property away from unlocking the Silver Tier bonus!"
+} 

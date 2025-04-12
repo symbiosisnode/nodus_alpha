@@ -1,0 +1,44 @@
+{
+    "badges": [
+        {
+            "id": "badge_01",
+            "name": "Property Pro",
+            "description": "Awarded for onboarding 5 properties",
+            "icon": "\ud83c\udfe1",
+            "tier": "Bronze",
+            "points": 50
+        },
+        {
+            "id": "badge_02",
+            "name": "Team Builder",
+            "description": "Awarded for recruiting 3 Sales Advocates",
+            "icon": "\ud83d\udc65",
+            "tier": "Silver",
+            "points": 100
+        },
+        {
+            "id": "badge_03",
+            "name": "Referral Master",
+            "description": "Awarded for 10 successful referrals",
+            "icon": "\ud83d\udd17",
+            "tier": "Gold",
+            "points": 200
+        },
+        {
+            "id": "badge_04",
+            "name": "Empire Starter",
+            "description": "First login and completed onboarding",
+            "icon": "\ud83d\ude80",
+            "tier": "Starter",
+            "points": 10
+        },
+        {
+            "id": "badge_05",
+            "name": "Equity Climber",
+            "description": "Achieved Silver Tier Equity status",
+            "icon": "\ud83d\udcc8",
+            "tier": "Silver",
+            "points": 150
+        }
+    ]
+}
