@@ -1,3 +1,5 @@
+import { NODUS_STYLE_GUIDE } from '../NodusStyleGuide';
+
 export const layout = {
   // Breakpoints
   breakpoints: {
@@ -11,16 +13,16 @@ export const layout = {
   container: {
     mobile: '100%',
     tablet: '100%',
-    desktop: '1200px',
+    desktop: NODUS_STYLE_GUIDE.layout.maxWidth,
     largeDesktop: '1400px',
   },
 
   // Margins
   margins: {
     mobile: '16px',
-    tablet: '32px',
-    desktop: '32px',
-    largeDesktop: '48px',
+    tablet: '24px',
+    desktop: NODUS_STYLE_GUIDE.layout.padding,
+    largeDesktop: '32px',
   },
 
   // Spacing Scale (8px increments)
@@ -28,16 +30,21 @@ export const layout = {
     xs: '0.25rem', // 4px
     sm: '0.5rem',  // 8px
     md: '1rem',    // 16px
-    lg: '1.5rem',  // 24px
-    xl: '2rem',    // 32px
+    lg: NODUS_STYLE_GUIDE.layout.gap,
+    xl: NODUS_STYLE_GUIDE.layout.padding,
     xxl: '3rem',   // 48px
     xxxl: '4rem',  // 64px
   },
 
   // Grid System
   grid: {
-    columns: 12,
-    gap: '1.5rem', // 24px
+    columns: NODUS_STYLE_GUIDE.layout.gridColumns,
+    gap: NODUS_STYLE_GUIDE.layout.gap,
+  },
+
+  // Sidebar width
+  sidebar: {
+    width: NODUS_STYLE_GUIDE.layout.sidebarWidth,
   },
 };
 
