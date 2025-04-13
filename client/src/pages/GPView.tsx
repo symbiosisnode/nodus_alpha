@@ -1,12 +1,24 @@
 import React from 'react';
-import EquityMeter from '../components/equity/EquityMeter';
+import { useDemoData } from '../context/DemoDataContext';
+import { NetworkValueGraph } from '../components/NetworkValueGraph';
+import { EquityDashboardCard } from '../components/EquityDashboardCard';
 import SANetworkTree from '../components/dashboard/SANetworkTree';
 import MilestoneTracker from '../components/dashboard/MilestoneTracker';
 import ReferralTools from '../components/dashboard/ReferralTools';
-import { useDemoData } from '../context/DemoDataContext';
 
-// Remove the explicit data prop type
-// interface GPProps { ... }
+// Mock data for NetworkValueGraph
+const mockNetworkData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+  values: [50000, 75000, 100000, 125000, 150000, 175000],
+  sources: ['SA Growth', 'Network Expansion', 'Market Penetration', 'Value Creation', 'Network Effect', 'Total Value']
+};
+
+// Mock milestones data
+const mockMilestones = [
+  { id: '1', name: 'SA Network Growth', completed: false, progress: 65 },
+  { id: '2', name: 'Market Penetration', completed: false, progress: 45 },
+  { id: '3', name: 'Value Creation', completed: false, progress: 80 }
+];
 
 export default function GPView() {
   const { currentUserData, loading } = useDemoData();
@@ -16,8 +28,7 @@ export default function GPView() {
   }
 
   return (
-    <div className="min-h-screen bg-skyCanvas p-4 sm:p-6 lg:p-8">
-      {/* TODO: Add Global Nav/Sidebar/Footer Layout */}
+    <div className="p-6 space-y-6">
       <header className="mb-8">
         <h1 className="text-3xl font-heading font-bold text-empireBlue">
           GP Growth Studio
@@ -25,32 +36,60 @@ export default function GPView() {
         <p className="text-lg text-gray-600">Welcome, {currentUserData.name}</p>
       </header>
 
-      {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left Column (Network, Milestones) */}
+        {/* Left Column */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-xl font-semibold font-heading text-empireBlue mb-3">SA Network</h2>
+          {/* Network Value Graph */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold font-heading text-empireBlue mb-4">
+              Network Value Growth
+            </h2>
+            <div className="h-[300px]">
+              <NetworkValueGraph data={mockNetworkData} />
+            </div>
+          </div>
+
+          {/* SA Network Tree */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold font-heading text-empireBlue mb-4">
+              SA Network
+            </h2>
             <SANetworkTree networkData={currentUserData.saNetwork || { directCount: 0, totalCount: 0, recentGrowth: 0 }} />
           </div>
-          <div className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-xl font-semibold font-heading text-empireBlue mb-3">Milestone Tracker</h2>
-            <MilestoneTracker milestones={currentUserData.milestones || []} />
+
+          {/* Milestone Tracker */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold font-heading text-empireBlue mb-4">
+              Milestone Progress
+            </h2>
+            <MilestoneTracker milestones={mockMilestones} />
           </div>
         </div>
 
-        {/* Right Column (Equity, Referrals, Tools) */}
+        {/* Right Column */}
         <div className="space-y-6">
-           {/* Equity Meter Component */}
-          <EquityMeter />
+          {/* Equity Dashboard Card */}
+          <EquityDashboardCard 
+            equityPercentage={60}
+            totalValue={currentUserData.equity?.currentValue || 0}
+            growthRate={0.85}
+            achievements={2}
+          />
 
-          <div className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-xl font-semibold font-heading text-empireBlue mb-3">Referral Tools</h2>
+          {/* Referral Tools */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold font-heading text-empireBlue mb-4">
+              Referral Tools
+            </h2>
             <ReferralTools referralData={currentUserData.referral || { code: '', link: '', conversions: 0 }} />
           </div>
-           <div className="bg-white p-4 rounded-lg shadow border border-dashed border-auroraOrange">
+
+          {/* EmpireBot Suggestions */}
+          <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-dashed border-auroraOrange">
             <h3 className="text-lg font-semibold text-empireBlue">EmpireBot Suggests...</h3>
-            <p className="text-sm text-gray-600 mt-1">Reach out to high-potential SA leads identified in your network.</p>
+            <p className="text-sm text-gray-600 mt-2">
+              Reach out to high-potential SA leads identified in your network. Current conversion rate is 35%.
+            </p>
           </div>
         </div>
       </div>

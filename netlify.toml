@@ -8,6 +8,11 @@
   command = "cd client && npm run build"
   # Directory (relative to root) containing the built site assets
   publish = "client/dist"
+  base = "."
+
+# Build plugins
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
 
 # Redirect rule for Single Page Applications (SPA)
 # This ensures direct navigation or refresh on routes like /mto works
@@ -21,4 +26,42 @@
   for = "/*"
   [headers.values]
     # Don't cache HTML, always check for updates
-    Cache-Control = "public, max-age=0, must-revalidate" 
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Environment variables
+[context.production.environment]
+  NODE_ENV = "production"
+  VITE_APP_NAME = "NODUS"
+  VITE_API_URL = "https://api.nodus-now.net"
+  VITE_MAPBOX_TOKEN = "pk.eyJ1Ijoibm9kdXMtbWFwcyIsImEiOiJjbGZ0d2F0b2EwM2F5M3BwN2F0d2F0b2EifQ.1234567890"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+  VITE_APP_NAME = "NODUS (Preview)"
+  VITE_API_URL = "https://api-preview.nodus-now.net"
+  VITE_MAPBOX_TOKEN = "pk.eyJ1Ijoibm9kdXMtbWFwcyIsImEiOiJjbGZ0d2F0b2EwM2F5M3BwN2F0d2F0b2EifQ.1234567890"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+  VITE_APP_NAME = "NODUS (Branch)"
+  VITE_API_URL = "https://api-dev.nodus-now.net"
+  VITE_MAPBOX_TOKEN = "pk.eyJ1Ijoibm9kdXMtbWFwcyIsImEiOiJjbGZ0d2F0b2EwM2F5M3BwN2F0d2F0b2EifQ.1234567890"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9" 
